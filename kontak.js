@@ -1,42 +1,30 @@
-import react from 'react';
-import {View,Text,Image,StyleSheet} from 'react-native';
+// components/kontak.js
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-export default function Contact(props){
-  return(
+const Kontak = ({ gambar, judul, telpon }) => {
+  return (
     <View style={styles.container}>
-    <Image source={props.gambar} style={styles.img}/>
-      <View style={styles.teks}>
-        <Text style={styles.title}>{props.judul} </Text>
-        <Text style={styles.telp }>{props.telpon}</Text>
-      </View>
-  </View>
-  )
-}
+      <Image source={gambar} style={styles.image} />
+      <Text style={styles.title}>{judul}</Text>
+    </View>
+  );
+};
 
-const styles =StyleSheet.create({
-
-  container:{
-    height:80,
-    flexDirection:'row',
-    alignItems:'center',
-    borderBottomWidth:1,
-    borderColor:'blue'
-
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10,
   },
-  img:{
-    margin:15,
-    width:50,
-    height:50
+  image: {
+    width: 100,
+    height: 100,
   },
-  teks:{flex:1},
-
-  title:{
-    fontWeight:'bold',
-    fontSize:16
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
+});
 
-  telp: {
-    fontSize: 14,
-    color:'#3498db'
-  }
-})
+export default Kontak;

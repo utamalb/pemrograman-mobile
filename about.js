@@ -1,10 +1,15 @@
+// components/About.js
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-const About = () => {
+const About = ({ route }) => {
+  const { gambar, judul, telpon } = route.params;
+
   return (
     <View style={styles.container}>
-      <Text>About Screen</Text>
+      <Image source={gambar} style={styles.image} />
+      <Text style={styles.title}>{judul}</Text>
+      <Text style={styles.phone}>{telpon}</Text>
     </View>
   );
 };
@@ -14,6 +19,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  image: {
+    width: 200,
+    height: 200,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 20,
+  },
+  phone: {
+    fontSize: 16,
+    marginTop: 10,
   },
 });
 
